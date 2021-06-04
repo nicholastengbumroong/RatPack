@@ -3,6 +3,5 @@ Rat themed twitter clone
 
 
 ## Tool & Technologies
-> React.js
-> MongoDB
-> 
+- React.js
+- MongoDB Atlas
