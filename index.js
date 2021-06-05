@@ -1,10 +1,22 @@
 const express = require('express'); 
 const cors = require('cors'); 
-const monk = require('monk'); 
 
 const app = express(); 
 
-const db = monk('localhost/ratpack'); 
+const http = require('http'); 
+const port = process.env.PORT || 3000
+
+const server = http.createServer((req, res) => {
+    res.statusCode = 200;
+    res.setHeader('Content-Type', 'text/html');
+    res.end('<h1>Hello World</h1>');
+  });
+  
+  server.listen(port,() => {
+    console.log(`Server running at port `+port);
+  });
+
+/*
 const squeaks = db.get('squeaks'); 
 
 app.use(cors());
@@ -57,3 +69,5 @@ app.post('/squeaks', (request, response) => {
 app.listen(5000, () => {
     console.log('Listening on http://localhost:5000');
 });
+
+*/
