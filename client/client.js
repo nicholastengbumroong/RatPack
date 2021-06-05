@@ -3,7 +3,7 @@ console.log("Hello World");
 const form = document.querySelector('form');
 const loadingElement = document.querySelector('.loading'); 
 const squeaksElement = document.querySelector('.squeaks')
-const API_URL = 'http://localhost:5000/squeaks';
+const SQUEAK_URL = window.location.hostname === 'localhost' ? 'http://localhost:5000/squeaks' : 'https://ratpackwastaken.herokuapp.com/squeaks';
 
 
 loadingElement.style.display = ''; 
@@ -25,7 +25,7 @@ form.addEventListener('submit', (event) => {
     form.style.display = 'none'; 
     loadingElement.style.display = ''; 
 
-    fetch(API_URL, {
+    fetch(SQUEAK_URL, {
         method: 'POST',
         body: JSON.stringify(squeak),
         headers: {
@@ -43,7 +43,7 @@ form.addEventListener('submit', (event) => {
 
 function listAllSqueaks() {
     squeaksElement.innerHTML = '';
-    fetch(API_URL)
+    fetch(SQUEAK_URL)
         .then(response => response.json())
         .then(squeaks => {
             console.log(squeaks);

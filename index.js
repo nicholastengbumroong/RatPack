@@ -32,31 +32,31 @@ const squeakFormSchema = new Schema({
 //model 
 const Squeak = mongoose.model('Squeak', squeakFormSchema); 
 
+//check if the mongoose if connected
 mongoose.connection.on('connected', () => {
     console.log('Mongoose is connected'); 
 });
 
+//app will listen to either heroku or local port 
 app.listen(port, () => {
     console.log('Listening on port', port); 
 });
 
-/*
-const squeaks = db.get('squeaks'); 
-
 app.use(cors());
 app.use(express.json());
+app.use(express.static(path.join(__dirname, 'client/build')));
 
-app.get('/', (request, response) => {
-    response.json({
+app.get('/', (req, res) => {
+    res.json({
         message: 'RatPack'
     });
 });
 
-app.get('/squeaks', (request, response) => {
-    squeaks 
+app.get('/squeaks', (req, res) => {
+    Squeak
         .find() 
         .then(squeaks => {
-            response.json(squeaks);
+            res.json(squeaks);
         })
 });
 
@@ -65,29 +65,27 @@ function isValidSqueak(squeak) {
         squeak.content && squeak.content.toString().trim() !== '';  
 }
 
-app.post('/squeaks', (request, response) => {
-    console.log(request.body)
-    if(isValidSqueak(request.body)) {
-        const squeak = {
-            name: request.body.name.toString(),
-            content: request.body.content.toString(), 
+app.post('/squeaks', (req, res) => {
+    console.log(req.body)
+    if(isValidSqueak(req.body)) {
+        const squeak = new Squeak ({
+            name: req.body.name.toString(),
+            content: req.body.content.toString(), 
             created: new Date()
-        };
+        });
 
-        // inserting into the database after validation
-        // ?????????? what is this syntax??
-        squeaks
-            .insert(squeak)
+        squeak
+            .save()
             .then(createdSqueak => {
-                response.json(createdSqueak); 
+                res.json(createdSqueak); 
             });
     }
     else {
-        response.status(422);
-        response.json({
+        res.status(422);
+        res.json({
             message: 'NAME AND CONTENT REQUIRED'
         });    
     }
 });
-*/
+
 
