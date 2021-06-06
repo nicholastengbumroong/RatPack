@@ -1,24 +1,27 @@
 {
-  "name": "server",
+  "name": "RatPack",
   "version": "1.0.0",
-  "description": "",
-  "main": "server/server.js",
+  "description": "Rat themed twitter clone",
+  "main": "server.js",
   "scripts": {
-    "start": "node server/server.js",
-    "dev": "nodemon server/server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nicholastengbumroong/RatPack.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nicholastengbumroong/RatPack/issues"
+  },
+  "homepage": "https://github.com/nicholastengbumroong/RatPack#readme",
   "dependencies": {
     "axios": "^0.21.1",
-    "cors": "^2.8.5",
-    "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "mongoose": "^5.12.13",
     "morgan": "^1.10.0"
-  },
-  "devDependencies": {
-    "nodemon": "^2.0.7"
   }
 }
