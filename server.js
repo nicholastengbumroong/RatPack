@@ -9,7 +9,7 @@ const port = process.env.PORT || 5000;
 const routes = require('./routes/api');
 
 // will need to hide using dotenv 
-const MONGODB_URI = "mongodb+srv://NickTeng:August1900!@cluster0.6zugf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+//const MONGODB_URI = "mongodb+srv://NickTeng:August1900!@cluster0.6zugf.mongodb.net/RatPack?retryWrites=true&w=majority"
 const conn = MONGODB_URI || 'mongodb://localhost/5000/ratpack'
 
 // connect to the mongo database
