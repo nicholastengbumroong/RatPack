@@ -39,7 +39,7 @@ class App extends React.Component {
     };
 
     axios({
-      url: '/save',
+      url: '/api/save',
       method: 'POST',
       data: payload
     })
@@ -61,7 +61,6 @@ class App extends React.Component {
 
   displaySqueakPosts = (posts) => {
     if (!posts.length) return null; 
-    console.log(posts);
     return posts.map((post, index) => (
       <div key={index}>
         <h3>{post.name}</h3>
