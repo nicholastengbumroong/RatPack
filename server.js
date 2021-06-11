@@ -6,29 +6,33 @@ const path = require('path');
 const app = express(); 
 const port = process.env.PORT || 5000; 
 
+const routes = require('./routes/api');
+
+// will need to hide using dotenv 
+const MONGODB_URI = "mongodb+srv://NickTeng:August1900!@cluster0.6zugf.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+const conn = MONGODB_URI || 'mongodb://localhost/5000/ratpack'
+
+// connect to the mongo database
+mongoose.connect(conn, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+});
+
+//check if mongoose is connected
+mongoose.connection.on('connected', () => {
+    console.log('Mongoose is connected'); 
+});
+
+app.use(express.json());
+app.use(express.urlencoded({extended: false}))
 
 // HTTP request logger
-// Not necessary to build app, but will log every http request in terminal 
 app.use(morgan('tiny')); 
+app.use('/api', routes); 
 
-// Routes
-app.get('/', (req, res) => {
-    const data = {
-        name: 'Remy', 
-        content: 'im a rat',
-        date: new Date() 
-    }
-    res.json(data); 
-});
-
-app.get('/name', (req, res) => {
-    const data = {
-        name: 'Emile', 
-        content: 'im also a rat',
-        date: new Date() 
-    }
-    res.json(data); 
-});
+if (process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'))
+}
 
 app.listen(port, () => {
     console.log('Listening on port', port); 
