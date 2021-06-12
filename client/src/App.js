@@ -35,7 +35,7 @@ class App extends React.Component {
     event.preventDefault(); 
     const payload = {
       name: this.state.name,
-      content: this.state.content
+      content: this.state.content,
     };
 
     axios({
@@ -46,6 +46,7 @@ class App extends React.Component {
       .then(() => {
         console.log('Data has been sent to the server');
         this.resetUserInputs();
+        this.displaySqueakPosts(); 
       })
       .catch(() => {
         console.log('Internal server error'); 
@@ -60,11 +61,13 @@ class App extends React.Component {
   };
 
   displaySqueakPosts = (posts) => {
-    if (!posts.length) return null; 
+    if (!posts.length) return null;
+    posts.reverse();  
     return posts.map((post, index) => (
-      <div key={index}>
+      <div key={index} className="squeak-post-display">
         <h3>{post.name}</h3>
         <p>{post.content}</p>
+        <p>{post.date}</p>
       </div>
     ));
   };
@@ -72,12 +75,13 @@ class App extends React.Component {
   render() {
     return (
       <div className="App">
-        <h2>RatPack</h2>
+        <h2 className="Title">RatPack</h2>
         <form onSubmit={this.submit}>
           <div className="form-input">
             <input 
               type="text" 
-              name="name" 
+              name="name"
+              placeholder="Enter Name" 
               value={this.state.name}
               onChange={this.handleChange}
             />
@@ -87,6 +91,7 @@ class App extends React.Component {
               name="content" 
               cols="30" 
               rows="10" 
+              placeholder="Enter Body"
               value={this.state.content}
               onChange={this.handleChange}
               >
