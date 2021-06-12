@@ -1,5 +1,6 @@
 const express = require('express'); 
 const router = express.Router(); 
+const dateformat = require('dateformat');
 
 const Squeak = require('../models/squeakform'); 
 
@@ -17,9 +18,12 @@ router.get('/', (req, res) => {
 
 router.post('/save', (req, res) => {
     console.log('Body: ', req.body)
+    let now = new Date();
+    formatted = dateformat(now, 'dddd, mmmm dS, yyyy h:MM:ss TT');
     const newSqueak = new Squeak({
         name: req.body.name.toString(), 
-        content: req.body.content.toString()
+        content: req.body.content.toString(),
+        date: formatted
     });
 
     newSqueak
