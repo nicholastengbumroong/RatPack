@@ -58,6 +58,7 @@ class PostForm extends React.Component {
         <input 
           type='text' 
           name='name'
+          placeholder='Enter name'
           value={this.state.name}
           onChange={this.handleInputChange}
         />
@@ -70,6 +71,7 @@ class PostForm extends React.Component {
           type='text'
           name='content'
           rows='5'
+          placeholder='Enter squeak'
           value={this.state.content}
           onChange={this.handleInputChange}
         />

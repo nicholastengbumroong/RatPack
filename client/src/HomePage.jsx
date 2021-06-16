@@ -52,6 +52,7 @@ class HomePage extends React.Component {
   render() {
     return (
       <div className='parent'>
+        <h2 className='Title'>RatPack</h2>
         <PostForm />
         <div className='post-list'>{this.displayPosts(this.state.posts)}</div>
       </div>
