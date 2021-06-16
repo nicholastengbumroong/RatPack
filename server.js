@@ -23,12 +23,15 @@ mongoose.connection.on('connected', () => {
     console.log('Mongoose is connected'); 
 });
 
+// middleware
 app.use(cors());
 app.use(express.json());
-app.use(express.urlencoded({extended: false}));
+app.use(express.urlencoded({extended: false}));     // look up what this does
 
 // HTTP request logger
 app.use(morgan('tiny')); 
+
+
 app.use('/api', routes); 
 
 if (process.env.NODE_ENV === 'production') {

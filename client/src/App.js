@@ -1,7 +1,20 @@
 import React from 'react'; 
-import axios from 'axios'; 
+//import axios from 'axios'; 
 import './App.css';
+import HomePage from './HomePage';
 
+function App() {
+  return (
+    <div>
+    <HomePage />
+    </div>
+  );
+}
+
+export default App;
+
+
+/*
 class App extends React.Component {
 
   state = {
@@ -107,3 +120,4 @@ class App extends React.Component {
   }
 }
 export default App;
+*/
