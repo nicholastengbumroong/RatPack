@@ -3,7 +3,7 @@ A full-stack Rat themed twitter clone created using the MERN stack.
 
 This is a work in progress application that I am using to teach myself web dev. 
 
-## Tool & Technologies
+## Tools & Technologies
 - [React](https://reactjs.org/)
 - [Node.js](https://nodejs.org/en/)
 - [Express.js](https://expressjs.com/)
