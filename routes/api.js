@@ -26,7 +26,7 @@ router.post('/save', (req, res) => {
 
   if (isValidPost(req.body)) {
     let now = new Date();
-    formatted = dateformat(now, 'dddd, mmmm dS, yyyy h:MM:ss TT');
+    formatted = dateformat(now, 'h:MM TT ∙ mmm d, yyyy');
     const newSqueak = new Squeak({
       name: req.body.name.toString(),
       content: req.body.content.toString(),

@@ -1,3 +1,5 @@
+
+
 .parent {
   color:snow;
   background-color: #1D1F29;
@@ -19,6 +21,7 @@
 }
 .post-form label {
   color: snow;
+  font-size: 1.75rem;
 }
 
 .post-form textarea {
@@ -36,7 +39,7 @@
   border-radius: 8px;
   color: snow;
   padding: .375rem .75rem; 
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.5;
   cursor: pointer;
 }
@@ -54,4 +57,8 @@
   border-radius: 8px;
   margin: 10px 0px;
   padding: 10px;
+}
+
+.post-list {
+  background-color: #1D1F29;
 }

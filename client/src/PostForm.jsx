@@ -44,6 +44,9 @@ class PostForm extends Component {
       })
       .catch(() => {
         console.log('Internal server error');
+      })
+      .then(() => {
+        this.props.resetPosts(); 
       });
   }
 
@@ -79,7 +82,6 @@ class PostForm extends Component {
       </div>
       <div className='button-parent'>
         <button
-          //style={{float: 'right'}} 
           className='post-form-btn'
           disabled={!this.state.name || !this.state.content}
           onClick={this.handleSubmit}

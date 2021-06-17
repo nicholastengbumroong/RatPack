@@ -12,6 +12,7 @@ class HomePage extends Component {
 
     this.getPosts = this.getPosts.bind(this);
     this.displayPosts = this.displayPosts.bind(this); 
+    this.resetPosts = this.resetPosts.bind(this); 
   }
 
   // once component loads, get and display data
@@ -42,17 +43,30 @@ class HomePage extends Component {
     posts.reverse();
     return posts.map((post, index) => (
       <div key={index} className='post-display'>
-        <h5>{post.name} • {post.date}</h5>
+        <h5><b>{post.name}</b> • <small>{post.date}</small></h5>
         <p>{post.content}</p>
       </div>
     ));
+  }
+
+  resetPosts() {
+    this.setState({
+      posts: [],
+      isLoading: true
+    }, () => {
+      this.getPosts(); 
+      this.displayPosts(this.state.posts);
+    });
   }
 
   render() {
     return (
       <div className='parent'>
         <h2 className='title'>RatPack</h2>
-        <PostForm />
+        <PostForm 
+          resetPosts={this.resetPosts}
+          displayPosts={this.displayPosts}
+        />
         <div className='post-list'>{this.displayPosts(this.state.posts)}</div>
       </div>
     );
