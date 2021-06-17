@@ -1,8 +1,7 @@
-import React from 'react';
+import { Component } from 'react';
 import axios from 'axios';
-import './App.css'; 
 
-class PostForm extends React.Component {
+class PostForm extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -56,6 +55,7 @@ class PostForm extends React.Component {
           <label htmlFor='name'>Name</label>
         </div>
         <input 
+          className="u-full-width"
           type='text' 
           name='name'
           placeholder='Enter name'
@@ -68,6 +68,7 @@ class PostForm extends React.Component {
           <label htmlFor='content'>Squeak</label>
         </div>
         <textarea
+          className="u-full-width"
           type='text'
           name='content'
           rows='5'
@@ -76,8 +77,11 @@ class PostForm extends React.Component {
           onChange={this.handleInputChange}
         />
       </div>
-      <div>
+      <div className='button-parent'>
         <button
+          //style={{float: 'right'}} 
+          className='post-form-btn'
+          disabled={!this.state.name || !this.state.content}
           onClick={this.handleSubmit}
           type='submit'
         >  

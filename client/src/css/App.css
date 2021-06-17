@@ -1,0 +1,57 @@
+.parent {
+  color:snow;
+  background-color: #1D1F29;
+  padding: 15px; 
+}
+
+.title {
+  text-align: center;
+}
+
+.post-form {
+  color: #1D1F29; 
+  padding: 20px; 
+  background-color: #222431;
+  width: 50%;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  border-radius: 8px;
+}
+.post-form label {
+  color: snow;
+}
+
+.post-form textarea {
+  resize: none; 
+}
+
+.button-parent {
+  text-align: right;
+}
+
+.post-form-btn {
+  margin: 0 auto; 
+  background-color: #8b67b4;
+  border: 2px solid #1D1F29;
+  border-radius: 8px;
+  color: snow;
+  padding: .375rem .75rem; 
+  font-size: 1rem;
+  line-height: 1.5;
+  cursor: pointer;
+}
+
+.post-form-btn:hover {
+  color: snow;
+  border: 1px solid snow;
+  box-shadow: 0 0 4px snow; 
+  cursor: pointer;
+}
+
+.post-display {
+  background-color: #222431;
+  border: 2px solid rgb(107, 98, 121);
+  border-radius: 8px;
+  margin: 10px 0px;
+  padding: 10px;
+}

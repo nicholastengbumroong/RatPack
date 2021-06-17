@@ -1,7 +1,9 @@
 import React from 'react'; 
 //import axios from 'axios'; 
-import './App.css';
 import HomePage from './HomePage';
+import './css/App.css';
+import './css/normalize.css';
+import './css/skeleton.css';
 
 function App() {
   return (
