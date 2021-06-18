@@ -9,7 +9,8 @@ const SqueakFormSchema = new Schema({
     date: {
         type: String,
         defualt: Date.now()
-    }
+    },
+    likes: Number
 });
 
 // Model

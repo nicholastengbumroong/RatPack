@@ -51,14 +51,54 @@
   cursor: pointer;
 }
 
-.post-display {
-  background-color: #222431;
-  border: 2px solid rgb(107, 98, 121);
-  border-radius: 8px;
-  margin: 10px 0px;
-  padding: 10px;
-}
 
 .post-list {
   background-color: #1D1F29;
 }
+
+.post-display {
+  background-color:#222431;
+  border: 0px solid rgb(107, 98, 121);
+  border-radius: 8px;
+  margin: 10px 0px;
+  padding-bottom: 10px;
+}
+
+.post-display {
+  background-color: #222431;
+  border: 2px solid rgb(107, 98, 121);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+
+.post-bottom-bar {
+  text-align: right;
+}
+
+.like-btn-parent {
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.like-btn {
+  margin: 0 auto;
+  background-color: #1D1F29;
+  color: snow;
+  border: 2px solid rgb(107, 98, 121);
+  font-size: 11pt; 
+  font-weight: bold;
+}
+
+.like-btn:disabled {
+  background-color: #1D1F29;
+  border: 2px solid #1D1F29;
+  color:snow; 
+}
+
+.like-btn:hover {
+  color: snow; 
+  background-color: #222431;
+}
+

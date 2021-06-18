@@ -15,7 +15,8 @@ const conn = process.env.MONGODB_URI || 'mongodb://localhost/5000/ratpack';
 // connect to the mongo database
 mongoose.connect(conn, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false 
 });
 
 //check if mongoose is connected

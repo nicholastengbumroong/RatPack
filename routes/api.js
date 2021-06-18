@@ -3,6 +3,7 @@ const router = express.Router();
 const dateformat = require('dateformat');
 
 const Squeak = require('../models/squeakform');
+const { findByIdAndUpdate } = require('../models/squeakform');
 
 // Routes
 router.get('/', (req, res) => {
@@ -30,7 +31,8 @@ router.post('/save', (req, res) => {
     const newSqueak = new Squeak({
       name: req.body.name.toString(),
       content: req.body.content.toString(),
-      date: formatted
+      date: formatted,
+      likes: req.body.likes
     });
 
     newSqueak
@@ -51,13 +53,23 @@ router.post('/save', (req, res) => {
 
 
 // test route
-router.get('/name', (req, res) => {
-  const data = {
-    name: 'Emile',
-    content: 'im also a rat',
-    date: new Date()
+router.post('/like', (req, res) => {
+  console.log(req.body); 
+  if(req.body.likeState) {
+    Squeak.findByIdAndUpdate(req.body.postID, {$inc: {likes: 1 }}, {new: true}, (err, post) => {
+      if (err) {
+        res.json(err); 
+      }
+    });
   }
-  res.json(data);
+  else {
+    Squeak.findByIdAndUpdate(req.body.postID, {$inc: {likes: -1}}, {new: true}, (err) => {
+      if (err) {
+        res.json(err);
+      }
+    });
+  }
+
 });
 
 module.exports = router;

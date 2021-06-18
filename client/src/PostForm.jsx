@@ -32,6 +32,7 @@ class PostForm extends Component {
     const post = {
       name: this.state.name,
       content: this.state.content,
+      likes: 0
     };
     axios({
       url: '/api/save',

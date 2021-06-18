@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import axios from 'axios';
 import PostForm from './PostForm';
+import Like from './Like'
 
 class HomePage extends Component {
   constructor(props) {
@@ -39,11 +40,16 @@ class HomePage extends Component {
 
   displayPosts(posts) {
     if (!posts.length) return null;
-    console.log('posts.reverse has been called');
-    return posts.reverse().map((post, index) => (
-      <div key={index} className='post-display'>
-        <h5><b>{post.name}</b> • <small>{post.date}</small></h5>
-        <p>{post.content}</p>
+    posts.reverse(); 
+    return posts.map((post, index) => (
+      <div className='post-display'>
+        <div key={index} className='post-element'>
+          <h5><b>{post.name}</b> • <small>{post.date}</small></h5>
+          <p>{post.content}</p>
+        </div> 
+        <div className='post-bottom-bar'>
+          <Like post={post}></Like>
+        </div>
       </div>
     ));
   }
