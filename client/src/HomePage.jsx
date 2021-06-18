@@ -27,7 +27,7 @@ class HomePage extends Component {
       .then((res) => {
         const data = res.data;
         this.setState({ posts: data });
-        console.log('Data has been received');
+        console.log('Data retrieved from database'); 
       })
       .catch(() => {
         alert('Error retrieving data'); // change to actually handle error
@@ -38,10 +38,9 @@ class HomePage extends Component {
   }
 
   displayPosts(posts) {
-    console.log(posts);
     if (!posts.length) return null;
-    posts.reverse();
-    return posts.map((post, index) => (
+    console.log('posts.reverse has been called');
+    return posts.reverse().map((post, index) => (
       <div key={index} className='post-display'>
         <h5><b>{post.name}</b> • <small>{post.date}</small></h5>
         <p>{post.content}</p>
