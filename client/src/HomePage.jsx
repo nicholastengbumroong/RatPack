@@ -42,14 +42,15 @@ class HomePage extends Component {
     if (!posts.length) return null;
     posts.reverse(); 
     return posts.map((post, index) => (
-      <div className='post-display'>
-        <div key={index} className='post-element'>
+      <div className='post-display' key={post._id + index}>
+        <div className='post-element'>
           <h5><b>{post.name}</b> • <small>{post.date}</small></h5>
           <p>{post.content}</p>
+          <div className='post-bottom-bar'>
+            <Like post={post}></Like>
+          </div>
         </div> 
-        <div className='post-bottom-bar'>
-          <Like post={post}></Like>
-        </div>
+        
       </div>
     ));
   }

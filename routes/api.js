@@ -56,7 +56,7 @@ router.post('/save', (req, res) => {
 router.post('/like', (req, res) => {
   console.log(req.body); 
   if(req.body.likeState) {
-    Squeak.findByIdAndUpdate(req.body.postID, {$inc: {likes: 1 }}, {new: true}, (err, post) => {
+    Squeak.findByIdAndUpdate(req.body.postID, {$inc: {likes: 1 }}, {new: true}, (err) => {
       if (err) {
         res.json(err); 
       }
