@@ -7,7 +7,7 @@ class Like extends Component {
     this.state = {
       totalLikes: this.props.post.likes,
       likeState: true,
-      isBtnDisabled: false 
+      isBtnDisabled: false, 
     }
 
     this.updateLikes = this.updateLikes.bind(this); 
@@ -36,15 +36,17 @@ class Like extends Component {
   }
 
   render() {
+    let bgColor = this.state.likeState ? '#1D1F29' : 'rgb(107, 98, 121)'; 
     return(
       <div className='like-btn-parent'>
-        <div className='likes-label'><label htmlFor='likes'>Likes</label></div>
+        <div className='likes-label'><label htmlFor='likes'>{this.state.totalLikes}</label></div>
         <button 
           className='like-btn' 
+          style= {{backgroundColor: bgColor}}
           onClick={this.updateLikes}
           disabled={this.state.isBtnDisabled} 
         >
-          {this.state.totalLikes}
+          Like
         </button>
       </div>
     )
