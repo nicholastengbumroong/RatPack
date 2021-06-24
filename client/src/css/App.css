@@ -39,7 +39,7 @@
   color: snow;
   padding: .375rem .75rem; 
   font-size: 1.25rem;
-  line-height: 1.5;
+  line-height: 2.5;
   cursor: pointer;
 }
 
@@ -56,20 +56,16 @@
 }
 
 .post-display {
-  background-color:#222431;
-  border: 0px solid rgb(107, 98, 121);
-  border-radius: 8px;
-  margin: 10px 0px;
-  padding-bottom: 10px;
-}
-
-.post-display {
   background-color: #222431;
   border: 2px solid rgb(107, 98, 121);
   border-radius: 8px;
   padding: 10px;
+  margin: 10px 0px;
 }
 
+.post-element p {
+  font-size: 12pt;
+}
 
 .post-bottom-bar {
   text-align: right;
@@ -82,6 +78,7 @@
 }
 
 .like-btn {
+  padding: 0rem 1rem;
   margin: 0 auto;
   background-color: #1D1F29;
   color: snow;
@@ -101,3 +98,89 @@
   background-color: #222431;
 }
 
+.comment-btn-parent{
+  display: inline-block;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.comment-list-btn {
+  padding: 0rem 1rem;
+  margin: 0 auto;
+  margin-right: 15px;
+  background-color: #1D1F29;
+  color: snow;
+  border: 2px solid rgb(107, 98, 121);
+  font-size: 11pt; 
+  font-weight: bold;
+}
+
+.comment-list-btn:hover {
+  color: snow; 
+  background-color: #222431;
+}
+
+.comment-list-btn:focus {
+  color: snow;
+  border: 2px solid rgb(107, 98, 121);
+}
+
+.comment-form {
+  color: snow; 
+  padding: 1rem; 
+  background-color: #1D1F29;
+  margin: 1rem;
+  margin-bottom: 1rem;
+  border-radius: 8px;
+}
+.comment-form label {
+  color: snow;
+  font-size: 1.5rem;
+}
+
+.comment-form input[type=text] {
+  background-color: #222431;
+}
+
+.comment-form-content {
+  display: flex;
+}
+.comment-form textarea {
+  background-color: #222431;
+  width: 100%;
+  resize: none; 
+}
+
+.comment-form-btn {
+  margin: 1rem; 
+  margin-left: 2.5rem;
+  background-color: #8b67b4;
+  border: 2px solid #1D1F29;
+  border-radius: 8px;
+  color: snow;
+  font-size: 1.25rem;
+  cursor: pointer;
+}
+
+.comment-form-btn:hover {
+  color: snow;
+  box-shadow: 0 0 4px snow; 
+  cursor: pointer;
+}
+
+.comment-display {
+  background-color: #1D1F29;
+  border: 2px solid rgb(107, 98, 121);
+  border-radius: 8px;
+  padding: 10px;
+  margin: 10px 0px;
+}
+
+.comment-content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.comment-bottom-bar {
+  text-align: right;
+}

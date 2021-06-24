@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-
+const {CommentSchema} = require('./commentform');
 
 // Schema
 const Schema = mongoose.Schema;
@@ -10,10 +10,11 @@ const SqueakFormSchema = new Schema({
         type: String,
         defualt: Date.now()
     },
-    likes: Number
+    likes: Number,
+    comments: [CommentSchema]
 });
 
 // Model
-const Squeak = mongoose.model('Squeak', SqueakFormSchema); 
+const Squeak = mongoose.model('Squeak', SqueakFormSchema);
 
-module.exports = Squeak; 
+module.exports = Squeak;

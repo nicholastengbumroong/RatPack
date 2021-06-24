@@ -3,7 +3,7 @@ const router = express.Router();
 const dateformat = require('dateformat');
 
 const Squeak = require('../models/squeakform');
-const { findByIdAndUpdate } = require('../models/squeakform');
+const {Comment} = require('../models/commentform');
 
 // Routes
 router.get('/', (req, res) => {
@@ -22,6 +22,7 @@ function isValidPost(post) {
     post.content && post.content.toString().trim() !== '';
 }
 
+// post route
 router.post('/save', (req, res) => {
   console.log('Body: ', req.body)
 
@@ -52,7 +53,7 @@ router.post('/save', (req, res) => {
 });
 
 
-// test route
+// like route
 router.post('/like', (req, res) => {
   console.log(req.body); 
   if(req.body.likeState) {
@@ -70,6 +71,33 @@ router.post('/like', (req, res) => {
     });
   }
 
+});
+
+// comment post route
+router.post('/save-comment', (req, res) => {
+  console.log('Body: ', req.body)
+
+  if (isValidPost(req.body)) {
+    let now = new Date();
+    formatted = dateformat(now, 'h:MM TT ∙ mmm d, yyyy');
+    const newComment = new Comment({
+      name: req.body.name.toString(),
+      content: req.body.content.toString(),
+      date: formatted,
+      likes: req.body.likes
+  });
+
+  Squeak.findByIdAndUpdate(
+    {_id: req.body.post._id},
+    {$push: {comments: newComment}},
+    (err) => {
+      if (err) {
+        res.status(500).json({msg: 'Sorry, internal server errors'})
+      }
+    }
+  ); 
+
+  }
 });
 
 module.exports = router;
