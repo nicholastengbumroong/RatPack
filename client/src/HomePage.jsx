@@ -77,7 +77,7 @@ class HomePage extends React.Component {
   displayPosts(posts) {
     console.log(this.state.postKey); 
     if (!posts.length) return null;
-    posts.reverse(); 
+    //posts.reverse(); 
     let items = posts.map((post, index) => { 
       return (
         <div className='post-display' key={post._id + index}>
