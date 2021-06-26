@@ -51,7 +51,7 @@ class HomePage extends React.Component {
             <div className='comment-content'>
               <p>{comment.content}</p>
               <div className='comment-bottom-bar'>
-                <Like post={comment}></Like>
+                <Like post={comment} parent={post} isComment={true}></Like>
               </div>
             </div>
         </div>
@@ -75,9 +75,7 @@ class HomePage extends React.Component {
   }
 
   displayPosts(posts) {
-    console.log(this.state.postKey); 
     if (!posts.length) return null;
-    //posts.reverse(); 
     let items = posts.map((post, index) => { 
       return (
         <div className='post-display' key={post._id + index}>

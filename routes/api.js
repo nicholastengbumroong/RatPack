@@ -56,7 +56,6 @@ router.post('/save', (req, res) => {
 
 // like route
 router.post('/like', (req, res) => {
-  console.log(req.body); 
   if(req.body.likeState) {
     Squeak.findByIdAndUpdate(req.body.postID, {$inc: {likes: 1 }}, {new: true}, (err) => {
       if (err) {
@@ -86,7 +85,7 @@ router.post('/save-comment', (req, res) => {
       content: req.body.content.toString(),
       date: formatted,
       likes: req.body.likes
-  });
+    });
 
   Squeak.findByIdAndUpdate(
     {_id: req.body.post._id},
@@ -104,6 +103,30 @@ router.post('/save-comment', (req, res) => {
   ); 
 
   }
+});
+
+// comment like route
+router.post('/comment-like', (req, res) => {
+  console.log(req.body); 
+  if(req.body.likeState) {
+    Squeak.findOneAndUpdate(
+      {_id: req.body.parentID},
+      {$inc: {'comments.$[comment].likes': 1}},
+      {arrayFilters: [{'comment._id': req.body.commentID}]},
+      (err) => {
+        if (err) {
+          res.json(err); 
+        }
+    });
+  }
+  else {
+    Squeak.findByIdAndUpdate(req.body.postID, {$inc: {likes: -1}}, {new: true}, (err) => {
+      if (err) {
+        res.json(err);
+      }
+    });
+  }
+
 });
 
 module.exports = router;
