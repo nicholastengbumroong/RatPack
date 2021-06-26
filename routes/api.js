@@ -9,6 +9,7 @@ const {Comment} = require('../models/commentform');
 router.get('/', (req, res) => {
   Squeak
     .find()
+    .sort({date: -1})
     .then((data) => {
       res.json(data);
     })
@@ -89,7 +90,12 @@ router.post('/save-comment', (req, res) => {
 
   Squeak.findByIdAndUpdate(
     {_id: req.body.post._id},
-    {$push: {comments: newComment}},
+    {$push: {
+      comments: {
+         $each:[newComment], 
+         $position: 0
+      }
+    }},
     (err) => {
       if (err) {
         res.status(500).json({msg: 'Sorry, internal server errors'})
