@@ -1,5 +1,5 @@
 ## RatPack
-A full-stack twitter clone created using the MERN stack, i.e. MongoDB as the document database, Node.js with Express.js handling the server side, and React.js handling the client side. This web app was deployed using Heroku. 
+A full-stack message board created using the MERN stack, i.e. MongoDB as the database, Node.js with Express.js handling the server side, and React.js handling the client side. This web app was deployed using Heroku. 
 
 
 ## Tools & Technologies
